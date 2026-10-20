@@ -1,0 +1,890 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Book a Plumber · B Plumbing Solutions LLC</title>
+<meta name="description" content="Book plumbing service in DC, Maryland and Northern Virginia. Water heaters, faucets, toilets, drains, leaks and pumps. Free inspection, fast response, affordable rates.">
+<meta name="theme-color" content="#071330">
+<meta property="og:title" content="Book B Plumbing Solutions LLC">
+<meta property="og:description" content="Request a plumber in about two minutes. Free inspection. Serving the DMV.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔧</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="three.min.js"></script>
+<script>window.THREE || document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"><\/script>')</script>
+<style>
+:root{
+  --bg:#f4f6fb; --surface:#ffffff; --surface-2:#eaeef7; --ink:#0d1b3d; --ink-soft:#4a5776;
+  --gold:#9a7418; --gold-bright:#c99a2e; --gold-grad:linear-gradient(135deg,#f3d27a,#c99a2e 55%,#9a7418);
+  --water:#1f6fe0; --line:#d6ddec; --user-bubble:#0d1b3d; --user-ink:#f6e7b8; --ok:#1d7a4a;
+  --shadow:0 18px 40px -24px rgba(13,27,61,.45);
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#071330; --surface:#0d1d44; --surface-2:#13265a; --ink:#eef2fb; --ink-soft:#a8b4d4;
+    --gold:#e9c46a; --gold-bright:#f3d27a; --water:#5aa2ff; --line:#1f3570; --user-bubble:#e9c46a; --user-ink:#071330; --ok:#4fd18b;
+    --shadow:0 18px 40px -20px rgba(0,0,0,.7); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#071330; --surface:#0d1d44; --surface-2:#13265a; --ink:#eef2fb; --ink-soft:#a8b4d4;
+  --gold:#e9c46a; --gold-bright:#f3d27a; --water:#5aa2ff; --line:#1f3570; --user-bubble:#e9c46a; --user-ink:#071330; --ok:#4fd18b;
+  --shadow:0 18px 40px -20px rgba(0,0,0,.7); color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:#071330}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--gold-bright);outline-offset:2px;border-radius:6px}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:#071330;color:#eef2fb;border-bottom:1px solid rgba(233,196,106,.25)}
+.top-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 18px}
+.mark{width:40px;height:40px;flex:none;animation:wob 5s ease-in-out infinite;transform-origin:50% 50%}
+@keyframes wob{0%,100%{transform:perspective(200px) rotateY(-24deg)}50%{transform:perspective(200px) rotateY(24deg)}}
+.brand{display:flex;flex-direction:column;line-height:1.05;min-width:0}
+.brand b{font-family:Cinzel,Georgia,serif;font-weight:800;font-size:17px;letter-spacing:.04em;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand span{font-size:12px;color:#a8b4d4}
+.call{margin-left:auto;display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:15px;padding:9px 14px;border-radius:999px;background:var(--gold-grad);color:#071330;white-space:nowrap}
+.call svg{width:16px;height:16px}
+
+/* Hero */
+.hero{background:radial-gradient(120% 90% at 85% 0%,#163a8a 0%,#0b1d4a 45%,#071330 100%);color:#eef2fb;position:relative;overflow:hidden}
+.hero-in{max-width:1080px;margin:0 auto;padding:28px 18px 92px;position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:center;gap:12px}
+.stage{position:relative;height:420px;margin:-16px -18px 0 0;touch-action:pan-y;cursor:grab}
+.stage:active{cursor:grabbing}
+.stage canvas{display:block;width:100%;height:100%}
+.stage .fb{width:100%;height:100%;display:block;overflow:visible}
+.fb-b{animation:fbFloat 4s ease-in-out infinite}
+@keyframes fbFloat{50%{transform:translateY(-10px)}}
+.fb-flow{animation:fbFlow .6s linear infinite}
+@keyframes fbFlow{to{stroke-dashoffset:-36}}
+.fb-stream{animation:fbPulse .5s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:50% 0}
+@keyframes fbPulse{to{transform:scaleX(1.18)}}
+.fb-rip ellipse{fill:none;stroke:#9cc6ff;stroke-width:2;transform-box:fill-box;transform-origin:center;animation:fbRip 1.6s ease-out infinite}
+.fb-rip ellipse:nth-child(2){animation-delay:.53s}.fb-rip ellipse:nth-child(3){animation-delay:1.06s}
+@keyframes fbRip{0%{transform:scale(.3);opacity:.9}100%{transform:scale(3.4);opacity:0}}
+.fb-spray circle{fill:#bcd8ff;animation:fbSpray 1.1s cubic-bezier(.3,.1,.7,1) infinite}
+@keyframes fbSpray{0%{transform:translate(0,0);opacity:0}10%{opacity:1}100%{transform:translate(var(--dx),var(--dy));opacity:0}}
+.fb-drip{animation:fbDrip 1.4s ease-in infinite}
+@keyframes fbDrip{0%{transform:translateY(0) scale(.4);opacity:0}25%{transform:translateY(0) scale(1);opacity:1}100%{transform:translateY(215px);opacity:.9}}
+@media (prefers-reduced-motion:reduce){.fb *{animation:none!important}}
+.stage-hint{position:absolute;right:16px;bottom:6px;font-size:12px;font-weight:600;color:#a8b4d4;opacity:.85;pointer-events:none;transition:opacity .4s}
+@media (max-width:760px){.hero-in{grid-template-columns:1fr;padding-top:0;gap:0}.stage{order:-1;height:290px;margin:0 -18px 4px}}
+.hero h1{font-family:Cinzel,Georgia,serif;font-weight:800;font-size:clamp(30px,6.4vw,54px);line-height:1.04;margin:0 0 14px;max-width:16ch;background:linear-gradient(100deg,#c99a2e 0%,#e9c46a 30%,#fff6d8 45%,#e9c46a 60%,#c99a2e 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s ease-in-out infinite}
+@keyframes shine{0%,100%{background-position:100% 0}50%{background-position:0 0}}
+@media (prefers-reduced-motion:reduce){.mark,.hero h1{animation:none}}
+.hero-copy > *{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero-copy h1{animation:rise .9s cubic-bezier(.2,.7,.2,1) 1.1s both,shine 6s ease-in-out 2.2s infinite}
+.hero-copy p{animation-delay:1.4s}
+.hero-copy .facts{animation-delay:1.7s}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.hero-copy > *,.hero-copy h1{animation:none}}
+.hero p{margin:0;max-width:52ch;color:#c9d3ec;font-size:17px}
+.facts{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;padding:0;list-style:none;font-size:14px;color:#e9c46a;font-weight:600}
+.facts li{display:flex;align-items:center;gap:7px}
+.facts li::before{content:"";width:7px;height:7px;border-radius:50%;background:#5aa2ff;box-shadow:0 0 0 3px rgba(90,162,255,.25)}
+
+
+/* Main grid */
+.main{max-width:1080px;margin:-64px auto 0;padding:0 18px 48px;display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:22px;position:relative;z-index:2}
+@media (max-width:880px){.main{grid-template-columns:1fr}}
+
+/* Chat */
+.chat{background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:560px;overflow:hidden}
+.chat-head{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.avatar{width:38px;height:38px;border-radius:50%;background:#071330;display:grid;place-items:center;flex:none;border:2px solid var(--gold-bright)}
+.avatar svg{width:22px;height:22px}
+.chat-head h2{margin:0;font-size:16px;font-weight:800}
+.chat-head p{margin:0;font-size:13px;color:var(--ink-soft);display:flex;align-items:center;gap:6px}
+.live{width:8px;height:8px;border-radius:50%;background:var(--ok)}
+.log{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px;max-height:62vh;min-height:360px;scroll-behavior:smooth}
+.msg{max-width:86%;padding:11px 14px;border-radius:18px;white-space:pre-wrap;word-wrap:break-word;font-size:15.5px}
+.msg.bot{background:var(--surface-2);border-bottom-left-radius:6px;align-self:flex-start}
+.msg.me{background:var(--user-bubble);color:var(--user-ink);border-bottom-right-radius:6px;align-self:flex-end;font-weight:600}
+.msg.think{color:var(--ink-soft);font-style:italic}
+.dots span{display:inline-block;width:6px;height:6px;margin-right:4px;border-radius:50%;background:var(--ink-soft);animation:b 1s infinite}
+.dots span:nth-child(2){animation-delay:.15s}.dots span:nth-child(3){animation-delay:.3s}
+@keyframes b{0%,80%,100%{opacity:.25}40%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.dots span{animation:none}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 12px}
+.chip{border:1px solid var(--line);background:transparent;border-radius:999px;padding:7px 12px;font-size:14px;font-weight:600;cursor:pointer;color:var(--ink)}
+.chip:hover{border-color:var(--gold-bright);color:var(--gold)}
+.compose{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);background:var(--surface)}
+.compose textarea{flex:1;resize:none;border:1px solid var(--line);background:var(--bg);border-radius:14px;padding:12px 14px;min-height:48px;max-height:140px;font-size:16px}
+.send{flex:none;width:48px;height:48px;border-radius:14px;border:0;background:var(--gold-grad);color:#071330;cursor:pointer;display:grid;place-items:center}
+.send:disabled{opacity:.45;cursor:not-allowed}
+.send svg{width:20px;height:20px}
+
+/* Confirmation */
+.confirm{align-self:stretch;border:1.5px solid var(--gold-bright);border-radius:18px;padding:16px;background:linear-gradient(180deg,rgba(233,196,106,.12),transparent)}
+.confirm h3{margin:0 0 4px;font-family:Cinzel,Georgia,serif;font-size:18px;color:var(--gold)}
+.confirm .code{font-weight:800;font-size:13px;color:var(--ink-soft)}
+.confirm dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:12px 0;font-size:14.5px}
+.confirm dt{color:var(--ink-soft)}
+.confirm dd{margin:0;font-weight:600}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:14.5px;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);cursor:pointer}
+.btn.primary{background:var(--gold-grad);color:#071330;border-color:transparent}
+.note{font-size:13px;color:var(--ink-soft);margin:10px 0 0}
+
+/* Side */
+.side{display:flex;flex-direction:column;gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow)}
+.card h2{margin:0 0 12px;font-family:Cinzel,Georgia,serif;font-size:19px;color:var(--gold)}
+.svc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.svc button{width:100%;text-align:left;display:flex;align-items:center;gap:9px;padding:10px;border-radius:12px;border:1px solid var(--line);background:var(--bg);cursor:pointer;font-weight:600;font-size:14px}
+.svc button:hover{border-color:var(--gold-bright);box-shadow:0 10px 22px -14px rgba(201,154,46,.8)}
+.svc button{transition:transform .18s ease-out,box-shadow .18s;will-change:transform}
+.svc svg{width:20px;height:20px;flex:none;color:var(--gold)}
+.svc .free{grid-column:1/-1;border-color:var(--gold-bright)}
+.contact{display:flex;flex-direction:column;gap:10px;font-size:15px}
+.contact a,.contact div{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:600}
+.contact svg{width:20px;height:20px;color:var(--gold);flex:none}
+.urgent{border-left:4px solid #e0533a;background:var(--surface)}
+.urgent h2{color:#e0533a}
+.urgent p{margin:0;font-size:14.5px;color:var(--ink-soft)}
+
+/* Form */
+details.form summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;align-items:center}
+details.form summary::-webkit-details-marker{display:none}
+details.form summary::after{content:"+";font-size:22px;color:var(--gold)}
+details.form[open] summary::after{content:"–"}
+.fgrid{display:grid;gap:10px;margin-top:14px}
+.fgrid label{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:700;color:var(--ink-soft)}
+.fgrid input,.fgrid select,.fgrid textarea{border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:10px 12px;font-size:16px;font-weight:500;color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.err{color:#e0533a;font-size:13px;font-weight:700;min-height:1em}
+
+/* Owner panel */
+.owner{max-width:1080px;margin:0 auto 48px;padding:0 18px}
+.owner .card{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--ink-soft);font-size:12.5px}
+td a{font-weight:700}
+.empty{color:var(--ink-soft);font-size:14.5px}
+
+footer{text-align:center;padding:10px 18px 36px;font-size:13px;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3d27a"/><stop offset=".6" stop-color="#c99a2e"/><stop offset="1" stop-color="#9a7418"/></linearGradient></defs>
+      <path d="M14 8h22c9 0 15 5 15 12.5 0 5-3 8.6-7.4 10 6 1.3 9.9 5.8 9.9 11.8C53.5 51 47 56 37 56H14z M24 16v12h10.5c4 0 6.5-2.3 6.5-6s-2.5-6-6.5-6z M24 36v12h12c4.6 0 7.4-2.4 7.4-6s-2.8-6-7.4-6z" fill="url(#g)" fill-rule="evenodd"/>
+      <path d="M44 33c0 0 5 6 5 9a5 5 0 0 1-10 0c0-3 5-9 5-9z" fill="#3d8bff" transform="translate(4 -14) scale(.62)"/>
+      <path d="M6 54c10-6 30-6 52-2" stroke="#3d8bff" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="brand"><b>B PLUMBING</b><span>Solutions LLC · DMV</span></div>
+    <a class="call" href="tel:+15714083694" aria-label="Call B Plumbing at 571 408 3694">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>
+      <span>571 408 3694</span>
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-in">
+    <div class="hero-copy">
+    <h1>Tell us what’s leaking. We’ll get you on the schedule.</h1>
+    <p>Chat with our booking assistant to request a visit in about two minutes. A B Plumbing tech confirms your time by call or text.</p>
+    <ul class="facts">
+      <li>Free inspection</li>
+      <li>Fast response</li>
+      <li>Affordable rates</li>
+      <li>Serving the DMV</li>
+    </ul>
+    </div>
+    <div class="stage" id="stage" role="img" aria-label="Animated 3D gold B Plumbing logo beside a chrome pipe pouring and spraying water">
+      <span class="stage-hint" id="stageHint">Drag to spin</span>
+    </div>
+  </div>
+</section>
+
+<main class="main">
+  <section class="chat" aria-label="Booking assistant">
+    <div class="chat-head">
+      <div class="avatar" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z" fill="#5aa2ff"/></svg>
+      </div>
+      <div>
+        <h2>B Plumbing booking assistant</h2>
+        <p><span class="live" aria-hidden="true"></span><span id="status">Ready to book your visit</span></p>
+      </div>
+    </div>
+    <div class="log" id="log" role="log" aria-live="polite"></div>
+    <div class="chips" id="chips"></div>
+    <div class="compose">
+      <label for="input" style="position:absolute;left:-9999px">Message</label>
+      <textarea id="input" rows="1" placeholder="Describe the problem, e.g. “water heater won’t heat”"></textarea>
+      <button class="send" id="send" aria-label="Send message">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.4 20.4 21 12 3.4 3.6 3.4 10l12.6 2-12.6 2z"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <aside class="side">
+    <div class="card urgent">
+      <h2>Water pouring out right now?</h2>
+      <p>Shut off your main water valve, then call <a href="tel:+15714083694"><b>571 408 3694</b></a>. If you smell gas near a water heater, leave the home and call your gas company or 911 first.</p>
+    </div>
+
+    <div class="card">
+      <h2>Installation &amp; repair</h2>
+      <ul class="svc" id="svc"></ul>
+    </div>
+
+    <div class="card">
+      <details class="form" id="formWrap">
+        <summary>Prefer a quick form?</summary>
+        <div class="fgrid">
+          <label>Full name<input id="f_name" autocomplete="name"></label>
+          <div class="two">
+            <label>Phone<input id="f_phone" type="tel" autocomplete="tel"></label>
+            <label>Email (optional)<input id="f_email" type="email" autocomplete="email"></label>
+          </div>
+          <label>Service address<input id="f_address" autocomplete="street-address" placeholder="Street, city, ZIP"></label>
+          <label>Service needed<select id="f_service"></select></label>
+          <div class="two">
+            <label>Preferred date<input id="f_date" type="date"></label>
+            <label>Time window<select id="f_time"><option>Morning (8–12)</option><option>Afternoon (12–4)</option><option>Evening (4–7)</option><option>Any time</option></select></label>
+          </div>
+          <label>What’s going on?<textarea id="f_notes" rows="3"></textarea></label>
+          <input id="f_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" placeholder="Leave blank">
+          <div class="err" id="f_err"></div>
+          <button class="btn primary" id="f_submit" type="button">Request appointment</button>
+          <p class="note">Your details are only used to schedule your service.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="card">
+      <h2>Reach us directly</h2>
+      <div class="contact">
+        <a href="tel:+15714083694"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>571 408 3694</a>
+        <a href="mailto:1dollar.repair@gmail.com"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4.4 7H19.6z"/></svg>1dollar.repair@gmail.com</a>
+        <div><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 4.5A2.5 2.5 0 1 0 12 11.5 2.5 2.5 0 0 0 12 6.5z"/></svg>DC, Maryland &amp; Northern Virginia</div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+
+<footer>© B Plumbing Solutions LLC · Quality work, reliable service</footer>
+
+<script>
+(() => {
+  const BIZ = { phone: "+15714083694", phoneDisplay: "571 408 3694", email: "1dollar.repair@gmail.com" };
+  const ICON = {
+    heater:'<svg viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="2" width="10" height="18" rx="4"/><rect x="10" y="20" width="4" height="2"/></svg>',
+    faucet:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9h9a5 5 0 0 1 5 5v1h-4v-1a1 1 0 0 0-1-1H4z"/><rect x="7" y="5" width="4" height="4"/><path d="M16 18s1.5 2 1.5 3a1.5 1.5 0 0 1-3 0c0-1 1.5-3 1.5-3z"/></svg>',
+    toilet:'<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="2" width="8" height="7" rx="1"/><path d="M4 10h14a6 6 0 0 1-5 6l1 6H8l1-6a6 6 0 0 1-5-6z"/></svg>',
+    disposal:'<svg viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="2" width="14" height="4" rx="1"/><path d="M7 7h10l-1 13a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2z"/></svg>',
+    pump:'<svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="10" width="20" height="4"/><circle cx="12" cy="12" r="6"/></svg>',
+    drain:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 2v9a6 6 0 0 0 12 0V2"/></svg>',
+    inspect:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><circle cx="10" cy="10" r="6"/><path d="M15 15l6 6"/></svg>',
+    leak:'<svg viewBox="0 0 24 24" fill="currentColor"><rect x="1" y="7" width="22" height="5" rx="1"/><path d="M12 14s3 3.5 3 5.5a3 3 0 0 1-6 0c0-2 3-5.5 3-5.5z"/></svg>'
+  };
+  const SERVICES = [
+    {name:"Water heater", icon:"heater", re:/heater|hot water|no hot|lukewarm/},
+    {name:"Faucets", icon:"faucet", re:/faucet|tap\b|spigot/},
+    {name:"Toilet", icon:"toilet", re:/toilet|commode|keeps running|won.?t flush/},
+    {name:"Garbage disposal", icon:"disposal", re:/disposal|garbage/},
+    {name:"Pumps", icon:"pump", re:/pump|sump|well\b/},
+    {name:"Clogged drain", icon:"drain", re:/clog|drain|backed|backing|slow|block/},
+    {name:"Leaking pipes", icon:"leak", re:/leak|drip|burst|pipe|flood|water (on|under|coming)/},
+    {name:"Free inspection", icon:"inspect", re:/inspect|check.?up|look at/, free:true}
+  ];
+  const TIMES = ["Morning (8–12)","Afternoon (12–4)","Evening (4–7)","Any time"];
+
+  const $ = id => document.getElementById(id);
+  const log = $("log"), input = $("input"), sendBtn = $("send"), statusEl = $("status"), chips = $("chips");
+  const b = {};
+  let step = "problem", editing = false, busy = false, done = false;
+
+  // Side services + form
+  const svcList = $("svc");
+  SERVICES.forEach(s => {
+    const li = document.createElement("li"); if (s.free) li.className = "free";
+    const btn = document.createElement("button"); btn.type = "button"; if (s.free) btn.className = "free";
+    btn.innerHTML = ICON[s.icon] + "<span></span>"; btn.querySelector("span").textContent = s.name;
+    btn.addEventListener("click", () => { input.focus(); send("I need help with: " + s.name.toLowerCase()); });
+    li.appendChild(btn); svcList.appendChild(li);
+  });
+  const sel = $("f_service");
+  [...SERVICES.map(s => s.name), "Other"].forEach(n => { const o = document.createElement("option"); o.textContent = n; sel.appendChild(o); });
+  const today0 = () => { const n = new Date(); return new Date(n.getFullYear(), n.getMonth(), n.getDate()); };
+  const iso = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+  $("f_date").min = iso(today0());
+
+  function setChips(list){
+    chips.textContent = ""; chips.hidden = !list.length;
+    list.forEach(n => { const c = document.createElement("button"); c.className = "chip"; c.type = "button"; c.textContent = n; c.addEventListener("click", () => send(n)); chips.appendChild(c); });
+  }
+  function bubble(role, text){
+    const d = document.createElement("div"); d.className = "msg " + role; d.textContent = text;
+    log.appendChild(d); log.scrollTop = log.scrollHeight; return d;
+  }
+  function say(text, nextChips = []){
+    return new Promise(res => {
+      const d = document.createElement("div"); d.className = "msg bot";
+      d.innerHTML = '<span class="dots" aria-label="Assistant is typing"><span></span><span></span><span></span></span>';
+      log.appendChild(d); log.scrollTop = log.scrollHeight; statusEl.textContent = "Typing…";
+      setTimeout(() => { d.textContent = text; log.scrollTop = log.scrollHeight; statusEl.textContent = done ? "Request ready" : "Ready to book your visit"; setChips(nextChips); res(); }, 550 + Math.min(text.length * 9, 900));
+    });
+  }
+
+  function parseDate(t){
+    const s = t.toLowerCase(), d = today0();
+    if (/today|asap|right now|now\b/.test(s)) return d;
+    if (/tomorrow/.test(s)) { d.setDate(d.getDate() + 1); return d; }
+    const days = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"];
+    for (let i = 0; i < 7; i++) {
+      if (new RegExp("\\b" + days[i].slice(0,3)).test(s)) {
+        let diff = (i - d.getDay() + 7) % 7 || 7;
+        if (/next/.test(s) && diff < 7 && !/this/.test(s)) diff += 0;
+        d.setDate(d.getDate() + diff); return d;
+      }
+    }
+    const m = s.match(/(\d{1,2})[\/\-.](\d{1,2})/);
+    if (m) { const x = new Date(d.getFullYear(), +m[1]-1, +m[2]); if (x < d) x.setFullYear(x.getFullYear()+1); if (!isNaN(x)) return x; }
+    const p = new Date(t + " " + d.getFullYear());
+    if (!isNaN(p)) { if (p < d) p.setFullYear(p.getFullYear()+1); return new Date(p.getFullYear(), p.getMonth(), p.getDate()); }
+    return null;
+  }
+  const pretty = s => { const dt = new Date(s + "T12:00:00"); return isNaN(dt) ? s : dt.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"}); };
+  const dayChips = () => { const out = ["Today","Tomorrow"]; const d = today0(); for (let i = 2; i < 5; i++) { const x = new Date(d); x.setDate(d.getDate()+i); out.push(x.toLocaleDateString("en-US",{weekday:"long"})); } return out; };
+
+  async function ask(s){
+    step = s;
+    if (s === "service") return say("Which of these is closest to what you need?", SERVICES.map(x => x.name));
+    if (s === "name") return say("What’s your full name?");
+    if (s === "phone") return say(`Thanks, ${b.name.split(" ")[0]}. What’s the best phone number to reach you?`);
+    if (s === "email") return say("Want an email copy? Type your email, or tap Skip.", ["Skip"]);
+    if (s === "address") return say("What’s the service address, with city and ZIP?");
+    if (s === "date") return say("What day works best for you?", dayChips());
+    if (s === "time") return say("And which time window?", TIMES);
+    if (s === "confirm") {
+      editing = false;
+      return say(`Here’s your request: ${b.service} for ${b.name} at ${b.address}, ${pretty(b.date)}, ${b.timeWindow}. Phone ${b.phone}. Shall I send it?`, ["Yes, send it","Change something"]);
+    }
+  }
+  const next = s => editing ? ask("confirm") : ask(s);
+
+  async function handle(t){
+    const low = t.toLowerCase();
+    if (step === "problem" || step === "service") {
+      if (/gas|smell/.test(low) && !/no gas/.test(low)) await say("If you smell gas, leave the home now and call your gas company or 911 first. Once you’re safe, I can still book the plumbing visit.");
+      const svc = SERVICES.find(s => s.name.toLowerCase() === low) || SERVICES.find(s => s.re.test(low));
+      if (!b.notes) b.notes = t;
+      if (/flood|burst|gush|everywhere|sewage|pouring|spraying/.test(low)) { b.urgent = true; await say(`That sounds urgent. Shut off your main water valve now and call ${BIZ.phoneDisplay} so a tech can head your way. I’ll also log your request.`); }
+      if (!svc) { if (step === "service") { b.service = "Other"; return next("name"); } return ask("service"); }
+      b.service = svc.name;
+      if (!b.urgent) await say(svc.free ? "Great, the inspection is free. Let’s get you on the schedule." : `Sorry you’re dealing with that. Let’s get a tech out to fix your ${svc.name.toLowerCase()}.`);
+      return next("name");
+    }
+    if (step === "name") { if (t.length < 2) return say("Could you type your full name?"); b.name = t.replace(/^(my name is|i'?m|it'?s)\s+/i, ""); return next("phone"); }
+    if (step === "phone") { const dg = t.replace(/\D/g, ""); if (dg.length < 10) return say("Please enter a 10-digit phone number."); b.phone = t; return next("email"); }
+    if (step === "email") { if (/skip|no|none/.test(low)) b.email = ""; else if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(t)) b.email = t; else return say("That email doesn’t look right. Try again, or tap Skip.", ["Skip"]); return next("address"); }
+    if (step === "address") { if (t.length < 6) return say("Please include the street, city and ZIP."); b.address = t; return next("date"); }
+    if (step === "date") { const d = parseDate(t); if (!d) return say("Sorry, I didn’t catch the day. Pick one below or type a date like 10/24.", dayChips()); b.date = iso(d); return next("time"); }
+    if (step === "time") { const tw = TIMES.find(x => low.startsWith(x.toLowerCase().slice(0,4))) || (/morn/.test(low) ? TIMES[0] : /after/.test(low) ? TIMES[1] : /even|night/.test(low) ? TIMES[2] : TIMES[3]); b.timeWindow = tw; return ask("confirm"); }
+    if (step === "confirm") {
+      if (/^y|send|correct|good|ok/.test(low)) { await say(`Your request is ready. Tap “Text this request” to send it straight to the B Plumbing team. A tech will confirm your time.`); return finish(); }
+      if (/change|edit|no/.test(low)) { step = "pick"; return say("What would you like to change?", ["Service","Name","Phone","Address","Day","Time"]); }
+      return say("Tap Yes to send it, or Change something.", ["Yes, send it","Change something"]);
+    }
+    if (step === "pick") {
+      editing = true;
+      const map = {service:"service", name:"name", phone:"phone", address:"address", day:"date", date:"date", time:"time"};
+      const k = Object.keys(map).find(k => low.includes(k));
+      return k ? ask(map[k]) : say("Pick one to change.", ["Service","Name","Phone","Address","Day","Time"]);
+    }
+    if (step === "done") return say(`Your request ${b.code} is ready above. For anything else, call ${BIZ.phoneDisplay}.`);
+  }
+
+  async function send(text){
+    const t = (text ?? input.value).trim().slice(0, 600);
+    if (!t || busy) return;
+    input.value = ""; input.style.height = "auto"; setChips([]);
+    bubble("me", t);
+    busy = true; sendBtn.disabled = true;
+    try { await handle(t); } finally { busy = false; sendBtn.disabled = false; }
+  }
+
+  function code(){ const a = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; let s = "BP-"; for (let i = 0; i < 5; i++) s += a[Math.floor(Math.random()*a.length)]; return s; }
+  function finish(){ b.code = code(); done = true; step = "done"; showConfirmation(b); }
+
+  function summaryText(x){
+    return `${x.urgent ? "URGENT " : ""}Appointment request (${x.code})\nName: ${x.name}\nPhone: ${x.phone}${x.email ? "\nEmail: " + x.email : ""}\nAddress: ${x.address}\nService: ${x.service}\nPreferred: ${pretty(x.date)}, ${x.timeWindow}\nDetails: ${x.notes || x.service}`;
+  }
+  function showConfirmation(x){
+    const card = document.createElement("div"); card.className = "confirm";
+    card.innerHTML = '<h3>Request ready</h3><div class="code"></div><dl></dl><div class="btns"></div><p class="note"></p>';
+    card.querySelector(".code").textContent = "Confirmation " + x.code;
+    const dl = card.querySelector("dl");
+    [["Service", x.service],["When", `${pretty(x.date)}, ${x.timeWindow}`],["Name", x.name],["Phone", x.phone],["Address", x.address]].forEach(([k,v]) => {
+      const dt = document.createElement("dt"); dt.textContent = k; const dd = document.createElement("dd"); dd.textContent = v; dl.append(dt, dd);
+    });
+    const body = encodeURIComponent(summaryText(x)), subject = encodeURIComponent(`Appointment request ${x.code}: ${x.service}`);
+    const mk = (cls, href, txt) => { const a = document.createElement("a"); a.className = cls; a.href = href; a.textContent = txt; return a; };
+    card.querySelector(".btns").append(
+      mk("btn primary", `sms:${BIZ.phone}?&body=${body}`, "Text this request"),
+      mk("btn", `mailto:${BIZ.email}?subject=${subject}&body=${body}`, "Email it"),
+      mk("btn", `tel:${BIZ.phone}`, "Call 571 408 3694")
+    );
+    card.querySelector(".note").textContent = "A B Plumbing tech will call or text you to confirm the exact time. Pricing is given after the free inspection.";
+    log.appendChild(card); log.scrollTop = log.scrollHeight;
+    statusEl.textContent = "Request ready";
+  }
+
+  input.addEventListener("input", () => { input.style.height = "auto"; input.style.height = Math.min(input.scrollHeight, 140) + "px"; });
+  input.addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); } });
+  sendBtn.addEventListener("click", () => send());
+
+  bubble("bot", "Hi, I’m the B Plumbing booking assistant. What’s going on with your plumbing? Tell me in your own words and I’ll get you scheduled.");
+  setChips(["Water heater","Clogged drain","Leaking pipes","Free inspection"]);
+
+  // Quick form
+  $("f_submit").addEventListener("click", () => {
+    const v = id => $(id).value.trim(), err = $("f_err");
+    const x = {name:v("f_name"), phone:v("f_phone"), email:v("f_email"), address:v("f_address"), service:v("f_service"), date:v("f_date"), timeWindow:v("f_time"), notes:v("f_notes") || v("f_service")};
+    if (v("f_website")) return;
+    if (!x.name || !x.phone || !x.address || !x.date) { err.textContent = "Add your name, phone, address and preferred date."; return; }
+    if (x.phone.replace(/\D/g,"").length < 10) { err.textContent = "Enter a 10-digit phone number."; return; }
+    err.textContent = ""; x.code = code(); done = true;
+    showConfirmation(x);
+    $("f_submit").textContent = "Request ready"; $("f_submit").disabled = true;
+    log.scrollIntoView({behavior:"smooth", block:"center"});
+  });
+})();
+</script>
+<script>
+(() => {
+  const stage = document.getElementById("stage");
+  const hint = document.getElementById("stageHint");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const canHover = matchMedia("(hover:hover)").matches;
+
+  // 3D tilt on service buttons
+  if (!reduce && canHover) {
+    document.querySelectorAll(".svc button").forEach(b => {
+      b.addEventListener("pointermove", e => {
+        const r = b.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        b.style.transform = `perspective(500px) rotateX(${-y*16}deg) rotateY(${x*16}deg) translateZ(6px)`;
+      });
+      b.addEventListener("pointerleave", () => { b.style.transform = ""; });
+    });
+  }
+
+  if (!stage) return;
+  function fallback(){
+    stage.classList.add("is-fallback");
+    stage.insertAdjacentHTML("afterbegin", `
+<svg class="fb" viewBox="0 0 520 420" aria-hidden="true">
+  <defs>
+    <linearGradient id="fbGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0b8"/><stop offset=".45" stop-color="#e2ad45"/><stop offset="1" stop-color="#8a6312"/></linearGradient>
+    <linearGradient id="fbChromeH" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6d7a92"/><stop offset=".3" stop-color="#ffffff"/><stop offset=".55" stop-color="#b9c4d8"/><stop offset="1" stop-color="#4a566e"/></linearGradient>
+    <linearGradient id="fbChromeV" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6d7a92"/><stop offset=".3" stop-color="#ffffff"/><stop offset=".55" stop-color="#b9c4d8"/><stop offset="1" stop-color="#4a566e"/></linearGradient>
+    <linearGradient id="fbWater" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5aa2ff" stop-opacity=".55"/><stop offset=".4" stop-color="#e6f1ff" stop-opacity=".95"/><stop offset="1" stop-color="#3d8bff" stop-opacity=".6"/></linearGradient>
+    <radialGradient id="fbPool" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#8fbaff" stop-opacity=".7"/><stop offset=".6" stop-color="#1f4fa8" stop-opacity=".45"/><stop offset="1" stop-color="#0b1d4a" stop-opacity="0"/></radialGradient>
+  </defs>
+  <ellipse cx="340" cy="362" rx="150" ry="22" fill="url(#fbPool)"/>
+  <g class="fb-b">
+    <path d="M70 110h88c36 0 60 20 60 50 0 20-12 34-30 40 24 5 40 23 40 47 0 33-26 53-66 53H70zM110 142v48h42c16 0 26-9 26-24s-10-24-26-24zM110 222v48h48c18 0 30-10 30-24s-12-24-30-24z" fill="url(#fbGold)" fill-rule="evenodd"/>
+    <path d="M150 150s12 14 12 22a12 12 0 0 1-24 0c0-8 12-22 12-22z" fill="#5aa2ff"/>
+    <path d="M40 318c50-14 140-16 210-4" stroke="#5aa2ff" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <path d="M50 330c50-12 130-14 190-2" stroke="url(#fbGold)" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </g>
+  <path d="M560 112H382q-42 0-42 42v38" stroke="url(#fbChromeH)" stroke-width="38" fill="none"/>
+  <path d="M560 104H384" stroke="#fff" stroke-opacity=".7" stroke-width="4" fill="none"/>
+  <rect x="316" y="176" width="48" height="16" rx="5" fill="url(#fbChromeV)"/>
+  <rect x="314" y="192" width="52" height="10" rx="4" fill="url(#fbChromeV)"/>
+  <rect x="470" y="88" width="16" height="48" rx="5" fill="url(#fbChromeH)"/>
+  <ellipse cx="420" cy="112" rx="30" ry="26" fill="url(#fbChromeH)"/>
+  <rect x="416" y="68" width="8" height="22" fill="url(#fbChromeV)"/>
+  <rect x="418" y="60" width="70" height="10" rx="5" fill="url(#fbGold)"/>
+  <circle cx="490" cy="65" r="9" fill="url(#fbGold)"/>
+  <rect class="fb-stream" x="331" y="200" width="18" height="160" rx="9" fill="url(#fbWater)"/>
+  <path class="fb-flow" d="M336 205V358M344 205V358" stroke="#fff" stroke-width="2" stroke-dasharray="14 22" stroke-opacity=".8"/>
+  <g class="fb-rip"><ellipse cx="340" cy="360" rx="30" ry="5"/><ellipse cx="340" cy="360" rx="30" ry="5"/><ellipse cx="340" cy="360" rx="30" ry="5"/></g>
+  <g class="fb-spray">
+    ${Array.from({length:16}, (_, i) => `<circle cx="${474 + (i%4)*3}" cy="134" r="${2 + (i%3)}" style="--dx:${-60 + (i*17)%110}px;--dy:${150 + (i*23)%80}px;animation-delay:${(i*0.11).toFixed(2)}s"/>`).join("")}
+  </g>
+  <path class="fb-drip" d="M478 136s7 9 7 14a7 7 0 0 1-14 0c0-5 7-14 7-14z" fill="#8fbaff"/>
+</svg>`);
+    if (hint) hint.hidden = true;
+  }
+  if (!window.THREE) { fallback(); return; }
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({antialias:true, alpha:true}); if (!renderer.getContext()) throw 0; }
+  catch (e) { fallback(); return; }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.15;
+  stage.prepend(renderer.domElement);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
+  camera.position.set(0, 0.5, 14);
+  camera.lookAt(0, -0.2, 0);
+
+  // Studio environment for chrome + gold reflections
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  const env = new THREE.Scene();
+  const sky = new THREE.SphereGeometry(20, 32, 16);
+  const cols = [], P = sky.attributes.position, c = new THREE.Color();
+  const navy = new THREE.Color("#040a1f"), blue = new THREE.Color("#1d4fb3"), white = new THREE.Color("#dfeaff");
+  for (let i = 0; i < P.count; i++) {
+    const t = (P.getY(i) / 20 + 1) / 2;
+    if (t < .5) c.copy(navy).lerp(blue, t / .5); else c.copy(blue).lerp(white, (t - .5) / .5);
+    cols.push(c.r, c.g, c.b);
+  }
+  sky.setAttribute("color", new THREE.Float32BufferAttribute(cols, 3));
+  env.add(new THREE.Mesh(sky, new THREE.MeshBasicMaterial({vertexColors:true, side:THREE.BackSide})));
+  const panel = (w, h, col, x, y, z) => {
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({color:col, side:THREE.DoubleSide}));
+    m.position.set(x, y, z); m.lookAt(0, 0, 0); env.add(m);
+  };
+  panel(14, 3, 0xffffff, 0, 12, 5);
+  panel(3, 12, 0xffffff, -13, 2, 6);
+  panel(4, 9, 0xffd27a, 13, 1, 3);
+  panel(12, 2, 0x3d8bff, 0, -7, 10);
+  scene.environment = pmrem.fromScene(env, 0.04).texture;
+
+  scene.add(new THREE.AmbientLight(0xffffff, 0.25));
+  const key = new THREE.DirectionalLight(0xfff1d6, 1.4); key.position.set(5, 8, 7); scene.add(key);
+  const rim = new THREE.PointLight(0x3d8bff, 2.2, 14); rim.position.set(-3, -2, 3); scene.add(rim);
+
+  const gold = new THREE.MeshStandardMaterial({color:0xe0a93a, metalness:1, roughness:0.28, emissive:0x3a2400, emissiveIntensity:0.35, envMapIntensity:0.9});
+  const chrome = new THREE.MeshStandardMaterial({color:0xf3f6fb, metalness:1, roughness:0.07});
+  const water = new THREE.MeshPhysicalMaterial({color:0x4b95ff, metalness:0, roughness:0.04, clearcoat:1, transparent:true, opacity:0.92, envMapIntensity:1.6});
+
+  const rig = new THREE.Group(); scene.add(rig);
+
+  // Gold extruded B monogram
+  const s = new THREE.Shape();
+  s.moveTo(0, 0); s.lineTo(0, 4); s.lineTo(1.8, 4);
+  s.absarc(1.8, 3.05, 0.95, Math.PI/2, -Math.PI/2, true);
+  s.lineTo(2.0, 2.1);
+  s.absarc(2.0, 1.05, 1.05, Math.PI/2, -Math.PI/2, true);
+  s.lineTo(0, 0);
+  const h1 = new THREE.Path();
+  h1.moveTo(0.75, 2.5); h1.lineTo(0.75, 3.4); h1.lineTo(1.8, 3.4);
+  h1.absarc(1.8, 2.95, 0.45, Math.PI/2, -Math.PI/2, true); h1.lineTo(0.75, 2.5);
+  const h2 = new THREE.Path();
+  h2.moveTo(0.75, 0.6); h2.lineTo(0.75, 1.55); h2.lineTo(2.0, 1.55);
+  h2.absarc(2.0, 1.075, 0.475, Math.PI/2, -Math.PI/2, true); h2.lineTo(0.75, 0.6);
+  s.holes.push(h1, h2);
+  const bGeo = new THREE.ExtrudeGeometry(s, {depth:0.7, bevelEnabled:true, bevelThickness:0.14, bevelSize:0.1, bevelSegments:5, curveSegments:28});
+  bGeo.center();
+  const logo = new THREE.Group();
+  const B = new THREE.Mesh(bGeo, gold); B.scale.setScalar(0.78); logo.add(B);
+
+  // Teardrop geometry (lathe)
+  const pts = [];
+  for (let i = 0; i <= 24; i++) { const t = i / 24 * Math.PI; pts.push(new THREE.Vector2(Math.sin(t) * Math.sin(t/2) * 0.62, Math.cos(t))); }
+  const dropGeo = new THREE.LatheGeometry(pts, 32);
+
+  // Water swoosh under the B, like the flyer logo
+  const sw = new THREE.Mesh(new THREE.TorusGeometry(2.0, 0.07, 12, 90, Math.PI * 0.95), water);
+  sw.rotation.set(Math.PI/2 - 0.25, 0, Math.PI + 0.1); sw.scale.set(1, 1, 0.55); sw.position.set(0.1, -1.55, 0.2);
+  logo.add(sw);
+  const sw2 = new THREE.Mesh(new THREE.TorusGeometry(2.25, 0.045, 10, 90, Math.PI * 0.8), gold);
+  sw2.rotation.copy(sw.rotation); sw2.scale.copy(sw.scale); sw2.position.set(0.25, -1.75, 0.1);
+  logo.add(sw2);
+  const badgeDrop = new THREE.Mesh(dropGeo, water); badgeDrop.scale.setScalar(0.28); badgeDrop.position.set(0.25, 0.95, 0.75);
+  logo.add(badgeDrop);
+  logo.position.set(-1.9, 0.35, 0);
+  rig.add(logo);
+
+  // Chrome pipe with elbow
+  const path = new THREE.CurvePath();
+  path.add(new THREE.LineCurve3(new THREE.Vector3(9, 2.0, 0), new THREE.Vector3(2.9, 2.0, 0)));
+  path.add(new THREE.QuadraticBezierCurve3(new THREE.Vector3(2.9, 2.0, 0), new THREE.Vector3(2.2, 2.0, 0), new THREE.Vector3(2.2, 1.3, 0)));
+  path.add(new THREE.LineCurve3(new THREE.Vector3(2.2, 1.3, 0), new THREE.Vector3(2.2, 0.55, 0)));
+  const pipe = new THREE.Group();
+  pipe.add(new THREE.Mesh(new THREE.TubeGeometry(path, 160, 0.34, 32, false), chrome));
+  const collar = (x, y, rx, ry) => { const m = new THREE.Mesh(new THREE.TorusGeometry(0.38, 0.08, 16, 48), chrome); m.position.set(x, y, 0); m.rotation.set(rx, ry, 0); pipe.add(m); };
+  collar(2.2, 0.6, Math.PI/2, 0); collar(2.2, 0.95, Math.PI/2, 0); collar(3.6, 2.0, 0, Math.PI/2); collar(4.4, 2.0, 0, Math.PI/2);
+  const lip = new THREE.Mesh(new THREE.TorusGeometry(0.31, 0.05, 12, 48), chrome); lip.position.set(2.2, 0.53, 0); lip.rotation.x = Math.PI/2; pipe.add(lip);
+  const inner = new THREE.Mesh(new THREE.CircleGeometry(0.3, 32), new THREE.MeshBasicMaterial({color:0x020611})); inner.position.set(2.2, 0.54, 0); inner.rotation.x = Math.PI/2; pipe.add(inner);
+  // Gold valve lever that turns the water on at the end of the intro
+  const valveBody = new THREE.Mesh(new THREE.SphereGeometry(0.44, 32, 24), chrome);
+  valveBody.scale.set(1.25, 1, 1); valveBody.position.set(4.0, 2.0, 0); pipe.add(valveBody);
+  const valve = new THREE.Group(); valve.position.set(4.0, 2.38, 0); pipe.add(valve);
+  const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.09, 0.4, 16), chrome); stem.position.y = 0.12; valve.add(stem);
+  const leverG = new THREE.Group(); leverG.position.y = 0.34; valve.add(leverG);
+  const lever = new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.13, 0.24), gold); lever.position.x = 0.45; leverG.add(lever);
+  const knob = new THREE.Mesh(new THREE.SphereGeometry(0.15, 20, 14), gold); knob.position.x = 1.0; leverG.add(knob);
+  leverG.rotation.y = reduce ? 0 : -Math.PI / 2;
+  rig.add(pipe);
+  const TIP = new THREE.Vector3(2.2, 0.5, 0);
+  const WATER_Y = -2.55;
+
+  // Water surface with soft radial edge
+  const cv = document.createElement("canvas"); cv.width = cv.height = 128;
+  const g = cv.getContext("2d"); const rg = g.createRadialGradient(64, 64, 4, 64, 64, 64);
+  rg.addColorStop(0, "#fff"); rg.addColorStop(0.55, "#888"); rg.addColorStop(1, "#000");
+  g.fillStyle = rg; g.fillRect(0, 0, 128, 128);
+  const pool = new THREE.Mesh(new THREE.CircleGeometry(3.6, 64), new THREE.MeshStandardMaterial({color:0x123c8c, metalness:0.3, roughness:0.05, transparent:true, opacity:0.7, alphaMap:new THREE.CanvasTexture(cv), depthWrite:false}));
+  pool.rotation.x = -Math.PI/2; pool.position.set(TIP.x, WATER_Y, 0); rig.add(pool);
+
+  // Ripple rings
+  const ripples = [];
+  for (let i = 0; i < 30; i++) {
+    const m = new THREE.Mesh(new THREE.RingGeometry(0.92, 1, 72), new THREE.MeshBasicMaterial({color:0x8fbaff, transparent:true, opacity:0, depthWrite:false, side:THREE.DoubleSide}));
+    m.rotation.x = -Math.PI/2; m.position.set(TIP.x, WATER_Y + 0.01, 0); m.visible = false; rig.add(m);
+    ripples.push({m, t:0, on:false});
+  }
+  const spawnRipple = (delay, x = TIP.x, z = 0, size = 1) => { const r = ripples.find(r => !r.on); if (r) { r.on = true; r.t = -delay; r.size = size; r.m.position.x = x; r.m.position.z = z; } };
+
+  // Falling drops
+  const drops = [];
+  for (let i = 0; i < 5; i++) { const m = new THREE.Mesh(dropGeo, water); m.visible = false; rig.add(m); drops.push({m, state:"idle", t:0, v:0}); }
+  const INTRO = 2.6;
+  let nextDrop = reduce ? 0.4 : INTRO + 0.12;
+  const TIP2 = new THREE.Vector3(4.4, 1.54, 0);   // drip off the leaking collar
+
+  // Leak: pressurized spray from a cracked joint on the pipe
+  const LEAK = new THREE.Vector3(3.6, 1.68, 0.24);
+  const SN = 180;
+  const sprayMesh = new THREE.InstancedMesh(new THREE.SphereGeometry(1, 10, 8), water, SN);
+  sprayMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+  sprayMesh.frustumCulled = false;
+  rig.add(sprayMesh);
+  const spray = Array.from({length: SN}, () => ({p: new THREE.Vector3(), v: new THREE.Vector3(), s: 0, on: false}));
+  const dummy = new THREE.Object3D();
+  const UP = new THREE.Vector3(0, 1, 0), tmpV = new THREE.Vector3();
+  let sprayAcc = 0;
+  function emit(t){
+    const q = spray.find(q => !q.on); if (!q) return;
+    const pulse = 0.85 + 0.2 * Math.sin(t * 5.3) + 0.1 * Math.sin(t * 13.7);
+    q.on = true;
+    q.p.set(LEAK.x + (Math.random() - .5) * 0.22, LEAK.y + (Math.random() - .5) * 0.05, LEAK.z + Math.random() * 0.05);
+    q.v.set((Math.random() - .45) * 0.8, 0.15 + Math.random() * 0.85, 0.6 + Math.random() * 0.8).multiplyScalar(pulse);
+    q.s = 0.022 + Math.random() * 0.034;
+  }
+  function updateSpray(dt, t){
+    if (introDone) { sprayAcc += dt * (60 + 30 * Math.sin(t * 3.1)); while (sprayAcc > 1) { emit(t); sprayAcc -= 1; } }
+    for (let i = 0; i < SN; i++) {
+      const q = spray[i];
+      if (q.on) {
+        q.v.y -= 7 * dt; q.p.addScaledVector(q.v, dt);
+        if (q.p.y <= WATER_Y) { q.on = false; if (Math.random() < 0.14) spawnRipple(0, q.p.x, q.p.z, 0.3 + Math.random() * 0.2); }
+      }
+      if (q.on) {
+        dummy.position.copy(q.p);
+        dummy.quaternion.setFromUnitVectors(UP, tmpV.copy(q.v).normalize());
+        dummy.scale.set(q.s, q.s * (1 + Math.min(q.v.length() * 0.35, 1.6)), q.s);
+      } else { dummy.position.set(0, -50, 0); dummy.scale.setScalar(0.0001); }
+      dummy.updateMatrix(); sprayMesh.setMatrixAt(i, dummy.matrix);
+    }
+    sprayMesh.instanceMatrix.needsUpdate = true;
+  }
+
+  // Live 3D water stream pouring from the open pipe end
+  const SL = TIP.y + 0.06 - WATER_Y;
+  const sGeo = new THREE.CylinderGeometry(0.17, 0.11, SL, 24, 60, true);
+  sGeo.translate(0, -SL / 2, 0);
+  const sBase = sGeo.attributes.position.array.slice();
+  const sc2 = document.createElement("canvas"); sc2.width = 64; sc2.height = 256;
+  const g2 = sc2.getContext("2d");
+  g2.fillStyle = "#9cc6ff"; g2.fillRect(0, 0, 64, 256);
+  for (let i = 0; i < 70; i++) { g2.fillStyle = `rgba(255,255,255,${0.15 + Math.random() * 0.6})`; g2.fillRect(Math.random() * 64, Math.random() * 256, 1 + Math.random() * 2.5, 20 + Math.random() * 90); }
+  const streakTex = new THREE.CanvasTexture(sc2);
+  streakTex.wrapS = streakTex.wrapT = THREE.RepeatWrapping; streakTex.repeat.set(2, 1.5); streakTex.encoding = THREE.sRGBEncoding;
+  const streamMat = new THREE.MeshPhysicalMaterial({color:0xbfdcff, map:streakTex, roughness:0.03, metalness:0, clearcoat:1, clearcoatRoughness:0.05, transparent:true, opacity:0.88, envMapIntensity:2.2, side:THREE.DoubleSide, depthWrite:false});
+  const stream = new THREE.Mesh(sGeo, streamMat);
+  stream.position.set(TIP.x, TIP.y + 0.06, 0); stream.scale.y = 0.0001; stream.visible = false; rig.add(stream);
+  const foam = new THREE.Mesh(new THREE.CircleGeometry(0.55, 40), new THREE.MeshBasicMaterial({color:0xffffff, transparent:true, opacity:0, alphaMap:new THREE.CanvasTexture(cv), depthWrite:false}));
+  foam.rotation.x = -Math.PI / 2; foam.position.set(TIP.x, WATER_Y + 0.02, 0); rig.add(foam);
+  const KN = 140;
+  const splashMesh = new THREE.InstancedMesh(new THREE.SphereGeometry(1, 8, 6), water, KN);
+  splashMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage); splashMesh.frustumCulled = false; rig.add(splashMesh);
+  const splash = Array.from({length: KN}, () => ({p: new THREE.Vector3(), v: new THREE.Vector3(), s: 0, on: false}));
+  let streamK = 0, splashAcc = 0, rippleT = 0;
+  function updateStream(dt, t){
+    const on = introDone || t >= INTRO - 0.05;
+    streamK = on ? Math.min(streamK + dt / 0.4, 1) : 0;
+    stream.visible = streamK > 0;
+    stream.scale.y = Math.max(streamK, 0.0001);
+    // the water slick spreads out over time
+    pool.scale.setScalar(reduce ? 1 : 0.3 + 0.7 * easeOut(clamp((t - INTRO) / 7)));
+    if (stream.visible) {
+      const a = sGeo.attributes.position.array;
+      for (let i = 0; i < a.length; i += 3) {
+        const bx = sBase[i], y = sBase[i + 1], bz = sBase[i + 2];
+        const k = -y / SL;
+        const rs = 1 + 0.1 * Math.sin(y * 9 - t * 18) + 0.05 * Math.sin(y * 23 - t * 31);
+        const wx = (Math.sin(y * 5 - t * 11) * 0.03 + Math.sin(y * 2.1 - t * 4.3) * 0.05) * k;
+        const wz = Math.cos(y * 4.4 - t * 9) * 0.03 * k;
+        a[i] = bx * rs + wx; a[i + 2] = bz * rs + wz;
+      }
+      sGeo.attributes.position.needsUpdate = true; sGeo.computeVertexNormals();
+      streakTex.offset.y += dt * 2.4;
+    }
+    const full = streamK >= 1;
+    foam.material.opacity = full ? 0.45 + 0.15 * Math.sin(t * 9) : 0;
+    foam.scale.setScalar(1 + 0.12 * Math.sin(t * 7));
+    if (full) {
+      rippleT -= dt;
+      if (rippleT <= 0) { spawnRipple(0, TIP.x, 0, 0.55 + Math.random() * 0.3); rippleT = 0.17; }
+      splashAcc += dt * 75;
+      while (splashAcc > 1) {
+        splashAcc -= 1;
+        const q = splash.find(q => !q.on); if (!q) break;
+        const ang = Math.random() * Math.PI * 2, sp = 0.5 + Math.random() * 1.1;
+        q.on = true; q.p.set(TIP.x + Math.cos(ang) * 0.1, WATER_Y + 0.03, Math.sin(ang) * 0.1);
+        q.v.set(Math.cos(ang) * sp, 1.0 + Math.random() * 1.6, Math.sin(ang) * sp);
+        q.s = 0.018 + Math.random() * 0.03;
+      }
+    }
+    for (let i = 0; i < KN; i++) {
+      const q = splash[i];
+      if (q.on) { q.v.y -= 9 * dt; q.p.addScaledVector(q.v, dt); if (q.p.y < WATER_Y) q.on = false; }
+      if (q.on) {
+        dummy.position.copy(q.p);
+        dummy.quaternion.setFromUnitVectors(UP, tmpV.copy(q.v).normalize());
+        dummy.scale.set(q.s, q.s * (1 + Math.min(q.v.length() * 0.3, 1.2)), q.s);
+      } else { dummy.position.set(0, -50, 0); dummy.scale.setScalar(0.0001); }
+      dummy.updateMatrix(); splashMesh.setMatrixAt(i, dummy.matrix);
+    }
+    splashMesh.instanceMatrix.needsUpdate = true;
+  }
+
+  // Floating sparkles
+  const N = 70, sp = new Float32Array(N * 3);
+  for (let i = 0; i < N; i++) { sp[i*3] = (Math.random() - .5) * 11; sp[i*3+1] = -2.5 + Math.random() * 6; sp[i*3+2] = -2.5 + Math.random() * 3; }
+  const spGeo = new THREE.BufferGeometry(); spGeo.setAttribute("position", new THREE.BufferAttribute(sp, 3));
+  const sparkles = new THREE.Points(spGeo, new THREE.PointsMaterial({color:0xa9ccff, size:0.06, transparent:true, opacity:0.75, depthWrite:false, blending:THREE.AdditiveBlending}));
+  scene.add(sparkles);
+
+  // Sizing
+  let baseZ = 14, introDone = reduce;
+  function resize(){
+    const w = stage.clientWidth, h = stage.clientHeight;
+    if (!w || !h) return;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    baseZ = camera.aspect < 1.15 ? 16.5 : 14;
+    if (introDone) camera.position.z = baseZ;
+    rig.position.x = camera.aspect < 1.15 ? -0.2 : -0.4;
+    camera.updateProjectionMatrix();
+    if (introDone) render();
+  }
+
+  // Interaction: drag to spin + pointer parallax
+  let spin = 0, spinVel = 0, dragging = false, lastX = 0, px = 0, py = 0, rx = 0, ry = 0;
+  stage.addEventListener("pointerdown", e => { dragging = true; lastX = e.clientX; stage.setPointerCapture(e.pointerId); if (hint) hint.style.opacity = 0; });
+  stage.addEventListener("pointermove", e => { if (!dragging) return; const dx = e.clientX - lastX; lastX = e.clientX; spinVel = dx * 0.012; spin += spinVel; if (reduce) render(); });
+  const end = () => { dragging = false; };
+  stage.addEventListener("pointerup", end); stage.addEventListener("pointercancel", end);
+  if (canHover) window.addEventListener("pointermove", e => { px = e.clientX / innerWidth - .5; py = e.clientY / innerHeight - .5; });
+
+  const clamp = v => Math.min(Math.max(v, 0), 1);
+  const easeOut = x => 1 - Math.pow(1 - x, 3);
+  const easeInOut = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+  const backOut = x => { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); };
+
+  function update(dt, t){
+    // Intro: camera flies in, B spins into place, pipe slides in, valve opens
+    if (!introDone) {
+      const e = easeOut(clamp(t / INTRO));
+      camera.position.set(Math.sin((1 - e) * 0.9) * 7, 0.5 + (1 - e) * 3.4, baseZ + (1 - e) * 16);
+      camera.lookAt(0, -0.2, 0);
+      const lt = clamp((t - 0.3) / 1.5);
+      logo.scale.setScalar(Math.max(0.001, backOut(lt)));
+      logo.rotation.y = (1 - easeOut(lt)) * Math.PI * 2;
+      pipe.position.x = (1 - easeOut(clamp((t - 0.55) / 1.3))) * 8;
+      pool.material.opacity = 0.7 * clamp((t - 1.1) / 1.0);
+      if (t >= INTRO) {
+        introDone = true;
+        camera.position.set(0, 0.5, baseZ); camera.lookAt(0, -0.2, 0);
+        logo.scale.setScalar(1); logo.rotation.y = 0; pipe.position.x = 0; pool.material.opacity = 0.7;
+      }
+    }
+    if (!reduce) leverG.rotation.y = -Math.PI / 2 * (1 - easeInOut(clamp((t - (INTRO - 0.6)) / 0.55)));
+    // logo float + gentle sway
+    logo.position.y = 0.35 + Math.sin(t * 1.3) * 0.14;
+    B.rotation.y = Math.sin(t * 0.7) * 0.35;
+    badgeDrop.rotation.y = t * 1.5;
+    sw.rotation.z = Math.PI + 0.1 + Math.sin(t * 0.9) * 0.05;
+    if (!dragging) { spinVel *= 0.94; spin += spinVel; spin *= 0.985; }
+    rx += ((py * 0.18) - rx) * 0.05; ry += ((px * 0.35) - ry) * 0.05;
+    rig.rotation.set(rx, ry + spin, 0);
+
+    // drops
+    nextDrop -= dt;
+    if (nextDrop <= 0) {
+      const d = drops.find(d => d.state === "idle");
+      if (d) { d.tip = TIP2; d.state = "grow"; d.t = 0; d.m.visible = true; d.m.position.copy(d.tip); d.m.scale.setScalar(0.01); }
+      nextDrop = 0.9 + Math.random() * 0.8;
+    }
+    drops.forEach(d => {
+      if (d.state === "grow") {
+        d.t += dt; const k = Math.min(d.t / 0.7, 1), sc = 0.17 * k;
+        d.m.scale.set(sc, sc * (1 + k * 0.3), sc);
+        d.m.position.y = d.tip.y - sc * 1.2;
+        if (d.t > 0.85) { d.state = "fall"; d.v = 0; }
+      } else if (d.state === "fall") {
+        d.v += 7 * dt; d.m.position.y -= d.v * dt;
+        d.m.scale.y = 0.17 * (1.3 + Math.min(d.v * 0.05, 0.4));
+        if (d.m.position.y <= WATER_Y) { d.state = "idle"; d.m.visible = false; spawnRipple(0, d.tip.x); spawnRipple(0.28, d.tip.x); spawnRipple(0.6, d.tip.x); }
+      }
+    });
+    ripples.forEach(r => {
+      if (!r.on) return;
+      r.t += dt;
+      if (r.t < 0) { r.m.visible = false; return; }
+      const life = 1.8, k = r.t / life;
+      r.m.visible = true;
+      r.m.scale.setScalar((0.08 + k * 2.6) * (r.size || 1));
+      r.m.material.opacity = 0.85 * (1 - k) * (1 - k);
+      if (r.t > life) { r.on = false; r.m.visible = false; }
+    });
+    updateSpray(dt, t);
+    updateStream(dt, t);
+    // sparkles drift up
+    const a = spGeo.attributes.position.array;
+    for (let i = 0; i < N; i++) { a[i*3+1] += dt * (0.15 + (i % 5) * 0.04); if (a[i*3+1] > 3.6) a[i*3+1] = -2.6; }
+    spGeo.attributes.position.needsUpdate = true;
+  }
+
+  function render(){ renderer.render(scene, camera); }
+
+  const clock = new THREE.Clock();
+  let running = false, visible = true, raf = 0;
+  function loop(){
+    if (!running) return;
+    const dt = Math.min(clock.getDelta(), 0.05);
+    update(dt, clock.elapsedTime);
+    render();
+    raf = requestAnimationFrame(loop);
+  }
+  function start(){ if (running || reduce || !visible || document.hidden) return; running = true; clock.getDelta(); raf = requestAnimationFrame(loop); }
+  function stop(){ running = false; cancelAnimationFrame(raf); }
+
+  new ResizeObserver(resize).observe(stage);
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; visible ? start() : stop(); }).observe(stage);
+  document.addEventListener("visibilitychange", () => document.hidden ? stop() : start());
+  resize();
+  if (reduce) { for (let i = 0; i < 80; i++) update(0.02, INTRO + i * 0.02); render(); } else start();
+})();
+</script>
+</body>
+</html>
